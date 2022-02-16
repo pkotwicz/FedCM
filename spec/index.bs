@@ -524,30 +524,30 @@ The file is parsed expecting the following properties:
     :: A set of [=Branding JSON=] options.
 </dl>
 
-The <dfn>Branding JSON</dfn> allows an [=IDP=] to express their branding preferences, which can be used by User Agents in customization entry points.
+The <dfn>Branding JSON</dfn> allows an [=IDP=] to express their branding preferences, which may be used by User Agents to customize the user agent consent prompt.
 
 Note: The branding preferences are deliberately designed to be high level / abstract (rather than opinionated about a specific UI structure), to allow different [=User Agents=] to offer different UI experiences and for them to evolve independently over time.
 
-It is expected to have the following properties:
-<dl dfn-type="argument" dfn-for="accounts_endpoint_response_branding">
-    :   <dfn>background-color</dfn> (optional)
-    ::  The [=IDP=]'s preferred background [=color=].
+It may have the following properties:
+<dl dfn-type="argument" dfn-for="manifest_branding">
+    :   <dfn>background_color</dfn> (optional)
+    ::  [=color=] for [=IDP=]-branded widgets such as buttons.
     :   <dfn>color</dfn> (optional)
-    ::  The [=IDP=]'s preferred foreground [=color=] of text.
+    ::  [=color=] for text on widgets with [=background_color=].
     :   <dfn>icons</dfn> (optional)
     ::  A list of [=Icon JSON=] objects.
 </dl>
 
 The <dfn>Icon JSON</dfn> is expected to have the following properties:
 
-<dl dfn-type="argument" dfn-for="accounts_endpoint_response_branding_icons">
+<dl dfn-type="argument" dfn-for="manifest_branding_icons">
     :   <dfn>url</dfn> (required)
     ::  The url pointing to the icon image.
     :   <dfn>size</dfn> (optional)
     ::  The size of the icon (assumed to be squared).
 </d1>
 
-The is required to be maskable (https://www.w3.org/TR/appmanifest/#icon-masks) and single resolution (not a multi-resolution .ico file).
+The [=manifest_branding_icons/url=] is required to be maskable (https://www.w3.org/TR/appmanifest/#icon-masks) and single resolution (not a multi-resolution .ico file).
 The <dfn>color</dfn> is a subset of CSS <<color>> syntax, namely <<hex-color>>s, ''hsl()''s, ''rgb()''s and <<named-color>>.
 
 
